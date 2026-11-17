@@ -28,7 +28,7 @@ class RensonSensorDescription(SensorEntityDescription):
     """Description of a dynamic sensor or a single endpoint field."""
 
     source: str = "sensor"
-    node_type: str | None = None
+    node_type: str | tuple[str, ...] | None = None
     path: tuple[str, ...] = ()
     conversion: str | None = None
     numeric_value: bool = True
@@ -83,7 +83,7 @@ SENSORS: list[RensonSensorDescription] = [
         state_class=SensorStateClass.MEASUREMENT,
     ),
     RensonSensorDescription(
-        key="lux", name="Light level", node_type="light",   # was: "lux"
+        key="lux", name="Light level", node_type=("lux", "light"),
         path=("parameter", "lux", "value"), native_unit_of_measurement="lx",
         device_class=SensorDeviceClass.ILLUMINANCE,
         state_class=SensorStateClass.MEASUREMENT,
