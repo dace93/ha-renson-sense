@@ -91,6 +91,37 @@ SENSORS: list[RensonSensorDescription] = [
     RensonSensorDescription(
         key="sound", name="Sound level", node_type="sound",
         path=("parameter", "average_level", "value"),
+        native_unit_of_measurement="dB", device_class=SensorDeviceClass.SOUND_PRESSURE,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    RensonSensorDescription(
+        key="sound_current", name="Sound level (current)", node_type="sound",
+        path=("parameter", "level", "value"),
+        native_unit_of_measurement="dB", device_class=SensorDeviceClass.SOUND_PRESSURE,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    RensonSensorDescription(
+        key="sound_min", name="Sound level min", node_type="sound",
+        path=("parameter", "min_level", "value"),
+        native_unit_of_measurement="dB", device_class=SensorDeviceClass.SOUND_PRESSURE,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    RensonSensorDescription(
+        key="sound_max", name="Sound level max", node_type="sound",
+        path=("parameter", "max_level", "value"),
+        native_unit_of_measurement="dB", device_class=SensorDeviceClass.SOUND_PRESSURE,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    RensonSensorDescription(
+        key="voc_index", name="VOC index", node_type="dvoc_sgp40",
+        path=("parameter", "voc_index", "value"),
+        device_class=SensorDeviceClass.AQI,
+        state_class=SensorStateClass.MEASUREMENT,
+    ),
+    RensonSensorDescription(
+        key="voc_device", name="VOC (device)", node_type="avoc",
+        path=("parameter", "voc_calc_embedded", "value"),
+        native_unit_of_measurement="ppm",
         state_class=SensorStateClass.MEASUREMENT,
     ),
     RensonSensorDescription(
