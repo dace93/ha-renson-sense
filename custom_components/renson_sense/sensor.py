@@ -83,7 +83,7 @@ SENSORS: list[RensonSensorDescription] = [
         state_class=SensorStateClass.MEASUREMENT,
     ),
     RensonSensorDescription(
-        key="lux", name="Light level", node_type="lux",
+        key="lux", name="Light level", node_type="light",   # was: "lux"
         path=("parameter", "lux", "value"), native_unit_of_measurement="lx",
         device_class=SensorDeviceClass.ILLUMINANCE,
         state_class=SensorStateClass.MEASUREMENT,
